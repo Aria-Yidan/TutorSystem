@@ -1,0 +1,35 @@
+{% extends "TutorSystem_base.html" %}
+
+{% block title %}个人中心{% endblock %}
+
+{% block content %}
+<style type="text/css">
+div#menu {background-color:#f0f0f0;height:200px;width:11%;float:left;}
+div#content0 {background-color:#fff;height:200px;width:89%;float:left;}
+</style>
+<div id="menu">
+<ul class="inf_set">
+<li class="inf_set"><a class="menu" href="/person_center/student/per_inf">资料填写</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/student/rel_stu_inf">家教需求</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/student/math_tut">家教匹配</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/student/precontract">我的预约</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/student/judge">评价教师</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/student/cha_passwd">账号及密码</a></li>
+</ul>
+</div> 
+<div id="content0">
+<td align="center">
+    <h2 align = "center">欢迎您，学生用户--->{{Username}}</h2>
+    {% if inf_flag %}
+    	{% if successpre_flag %}
+    		<h3 align = "center" style="color:green;">您有{{successpre_number}}条预约被教师通过，请及时查看！</h3>
+    	{% endif %}
+    {% else %}
+		<h3 align = "center">请填写个人资料及家教需求，系统将自动为您匹配家教！</h3>
+    {%  endif %}
+</td>
+</tr>
+</table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "TutorSystem_base.html" %}
+
+{% block title %}用户注册{% endblock %}
+
+{% block content %}
+
+	
+    <table align = "center" border='0' cellpadding="10">
+    <tr><h3 align = "center">用户信息填写</h3></tr>
+    <form  method=post>
+    <tr>
+        <td width="20%" algin="left">用户名:</td>
+        <td><input type="text" name="Username"/></td>
+    </tr>
+    <tr>
+        <td width="20%" algin="left">密码:</td>
+        <td><input type="password" name="Password" placeholder="长度最少4位！"/></td>
+    </tr>
+     <tr>
+        <td width="20%" algin="left">确认密码:</td>
+        <td><input type="password" name="rePassword" placeholder="长度最少4位！"/></td>
+    </tr>
+    <tr>
+        <td width="20%" algin="left">电话:</td>
+        <td><input type="text" name="Phone" placeholder="*必填*11位手机号*"/></td>
+    </tr>
+    <tr>
+        <td width="20%" algin="left">用户身份:</td>
+        <td><select name="UserType" style="width:100px;">
+            <option value="stu">学 生</option>
+            <option value="tut">教 师</option>
+            </select>
+        </td>
+    </tr>
+    <tr>
+    <td></td>
+    <td></td>
+        <td><p align="center"><input type="submit" style="width:80;" value="注册"/></p></td>
+    </tr>
+    
+    </form>
+    <tr><td></td>
+    <td>
+    {% if error %}
+        {% for err in error%}
+            <p style="color:red;">*{{err}}*</p>
+        {% endfor %}
+    {% endif %}
+    {% if reg_success %}
+        <p style="color:green;">注册成功！</p>
+    {% endif %}
+    </td>
+    </tr>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,106 @@
+{% extends "TutorSystem_base.html" %}
+
+{% block title %}查找家教||家教服务系统{% endblock %}
+
+{% block content %}
+<style type="text/css">
+div#menu {height:150px;width:100%;float:left;}
+div#content0 {height:350px;width:90%;float:left;OVERFLOW-X: scroll; scrollbar-face-color:#B3DDF7;scrollbar-shadow-color:#B3DDF7;scrollbar-highlight-color:#B3DDF7;scrollbar-3dlight-color:#EBEBE4;scrollbar-darkshadow-color:#EBEBE4;scrollbar-track-color:#F4F4F0;scrollbar-arrow-color:#000000;}
+.textbox{background:#FFFFFF;border-top:#000 1px solid;border-left:#000 1px solid;border-right:#000 1px solid;border-bottom:#000 1px solid;text-align:left;}
+
+</style>
+<div id="menu">
+   <form action="" method="post">
+    <!--<input type="text" name="search_tut" placeholder="你感兴趣的家教">-->
+    <table border="0" align="center">
+        <tr>
+            <td>年级：</td>
+            <td>
+                <input id="Grade0" name="Grade" type="radio" value="ALL" checked/><label for="Grade0">全 部</label>
+                <input id="Grade1" name="Grade" type="radio" value="初 一"/><label for="Grade1">初 一</label>
+                <input id="Grade2" name="Grade" type="radio" value="初 二"/><label for="Grade2">初 二</label>
+                <input id="Grade3" name="Grade" type="radio" value="初 三"/><label for="Grade3">初 三</label>
+                <input id="Grade4" name="Grade" type="radio" value="初 四"/><label for="Grade4">初 四</label>
+                <input id="Grade5" name="Grade" type="radio" value="高 一"/><label for="Grade5">高 一</label>
+                <input id="Grade6" name="Grade" type="radio" value="高 二"/><label for="Grade6">高 二</label>
+                <input id="Grade7" name="Grade" type="radio" value="高 三"/><label for="Grade7">高 三</label>
+            </td>
+        </tr>
+        <tr>
+            <td>科目：</td>
+            <td>
+                <input id="Subject0" name="Subject" type="radio" value="ALL" checked/><label for="Subject0">全 部</label>
+                <input id="Subject1" name="Subject" type="radio" value="数 学"/><label for="Subject1">数 学</label>
+                <input id="Subject2" name="Subject" type="radio" value="英 语"/><label for="Subject2">英 语</label>
+                <input id="Subject3" name="Subject" type="radio" value="语 文"/><label for="Subject3">语 文</label>
+                <input id="Subject4" name="Subject" type="radio" value="物 理"/><label for="Subject4">物 理</label>
+                <input id="Subject5" name="Subject" type="radio" value="化 学"/><label for="Subject5">化 学</label>
+                <input id="Subject6" name="Subject" type="radio" value="生 物"/><label for="Subject6">生 物</label>
+                <input id="Subject7" name="Subject" type="radio" value="其 他"/><label for="Subject7">其 他</label>
+        </tr>
+        <tr>
+            <td>时间段：</td>
+            <td>
+                <select name="Day" style="width:200px;">
+                    <option value="ALL" checked>全 部</option>
+                    <option value="0">周 一</option>
+                    <option value="1">周 二</option>
+                    <option value="2">周 三</option>
+                    <option value="3">周 四</option>
+                    <option value="4">周 五</option>
+                    <option value="5">周 六</option>
+                    <option value="6">周 日</option>
+                </select>
+                <select name="Day_time" style="width:200px;">
+                    <option value="ALL" checked>全 部</option>
+                    <option value="0">8:00-12:00</option>
+                    <option value="1">13:00-17:00</option>
+                    <option value="2">18:00-21:00</option>
+                </select>
+            </td>
+        </tr>
+        <tr><td></td><td align="right"><input type="submit" value="搜索"></td></tr>
+        <tr>
+            <td>您搜索的是：</td>
+            <td>{% if My_search%}{{My_search}}{% endif %}</td>
+        </tr>
+    </table>
+    
+    </form>
+</div>
+
+<div id="content0">
+{% if error %}
+    {% for err in error %}
+    <p><h2>{{err}}</h2></p>
+    {% endfor %}
+{% endif %}
+{%if Teacher_find %}
+    {%if Tutor_IF_list%}
+        <table cellspacing="30" algin="center" border="0">
+        {%for IF in Tutor_IF_list%}
+        <tr>
+        <td width="40%"></td>
+        <td align="center">
+        {% if IF.TeacherID.Sex %}
+            <a style="text-decoration:none;" href="http://victorydets.sinaapp.com/tutpage/{{IF.TeacherID.TeacherID}}/" target="_blank"><img src="picture/Tutor_picture_boy.png" width="80" height="90" alt="Tutor_picture_boy"/></a>
+        {% else %}
+            <a style="text-decoration:none;" href="http://victorydets.sinaapp.com/tutpage/{{IF.TeacherID.TeacherID}}/" target="_blank"><img src="picture/Tutor_picture_girl.png" width="80" height="90" alt="Tutor_picture_girl"/></a>
+        {% endif %}
+        </td>
+        <td>{{IF.TeacherID.Username.username}}
+        <p>{{IF.Price}}元/小时</p>
+        </td>
+        {% if IF.TeacherID.Introduction %}
+        <td ><textarea cols=35  rows=4 name="text" style="overflow:auto;border:solid 1px #000000; border-radius:15px; resize:none;" bodystyle="scrollbar-base-color:red" class="textbox" disabled="disabled">  {{IF.TeacherID.Introduction}}</textarea></td>
+        {% endif %}        
+        </tr>
+        {%endfor%}
+        </table>
+    {%else%}
+        <h2 style="color:red;">*未找到相关教师*</h2>
+    {% endif %}
+{% endif %}
+</div>
+    
+{% endblock %}

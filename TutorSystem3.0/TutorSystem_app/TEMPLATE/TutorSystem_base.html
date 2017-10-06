@@ -1,0 +1,73 @@
+<html>
+<head>
+    <link rel="shortcut icon" href="picture/favicon.ico">
+    <title>{% block title %}{% endblock %}</title>
+    <style type="text/css">
+    div#container{width:100%;height:auto;min-height:100%;position:relative;}
+    div#header {background-color:#ffffff;float:left;width:20%;text-align:left;height:22%;}
+    div#header1 {background-color:#ffffff;float:left;width:58%;text-align:left;height:22%;}
+    div#header2 {background-color:#ffffff;float:left;width:22%;text-align:left;height:22%;}
+    div#content {height:101%;text-align:center;padding-bottom:35px;}
+    div#content2 {height:80%;text-align:left;}
+    div#footer {clear:both;text-align:center;bottom:0;position:fixed;left:0;height:35px;background-color:#f0f0f0;width:100%;}
+    div#footer p{font-size:12px;}
+    ul.menu  {list-style-type:none;margin:0px auto 0px auto;padding:0;overflow:hidden;width:600px}
+    ul.inf_set  {list-style-type:none;margin:0px auto 0px auto;padding:0;overflow:hidden;}
+    li.menu  {float:left;}
+    li.inf_set  {float:center;}
+    a.menu:link,a.menu:visited    {display:block;width:120px;height:20px;font-weight:bold;
+                           color:#FFFFFF;background-color:#bebebe;
+                           text-align:center;padding:4px;text-decoration:none;
+                           text-transform:uppercase;
+                           margin:5px 10px;font-size:15px;}
+    a.menu:hover,a.menu:active    {background-color:#cc0000;}
+    a.lable:link,a.lable:visited    {text-decoration:none;color:#cc0000;font-weight:bold;font-size:15px;} <!--border:2px solid #000000;}-->
+    
+    </style>
+</head>
+<body> 
+    <div id="container">
+    <div id="header">
+    <img src="picture/TutorSystem_logo.png" width="100" height="100" alt="TutorSystem_logo"/>
+    </div>
+    <div id="header1">
+        
+        <ul class="menu">
+        <li class="menu"><a class="menu" href="http://victorydets.sinaapp.com/">主 页</a></li>
+        <li class="menu"><a class="menu" href="/search/">查找家教</a></li>
+        <li class="menu"><a class="menu" href="/help/">用户指南</a></li>
+        <li class="menu"><a class="menu" href="/about/">关于我们</a></li>
+        </ul>
+        <hr>
+    </div>
+    <div id="header2">
+     {% if Username %}
+            {% if user_type %}
+                </br>
+                <p style="text-align:right">
+                <a class="lable" href="/person_tut_page">个人主页</a>
+                <a class="lable" href="/person_center/">资料设置</a>
+                <a class="lable" href="/logout">退出登录</a>
+                </p>
+            {% else %}
+                </br>
+                <p style="text-align:right">
+                <a class="lable" href="/person_center/">个人中心</a>
+                <a class="lable" href="/logout">退出登录</a>
+                </p>
+            {% endif %}
+        {% else %}
+        </br>
+        </br>
+        <p style="text-align:right">点击<a  class="lable" href="/login/">登录</a>||新用户请<a  class="lable" href="/register/">注册</a>
+        </p>
+        
+        {% endif %}        
+    </div>
+    <div id="content">
+    {% block content %}{% endblock %}
+    </div>
+    <div id="footer"><p>Copyright © 2015 Yidan Li &amp; Chenglong Li 版权所有 <br/><br/></p></div>
+    </div>
+</body>
+</html>

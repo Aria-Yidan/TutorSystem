@@ -1,0 +1,39 @@
+{% extends "TutorSystem_base.html" %}
+
+{% block title %}用户登录{% endblock %}
+<style type="text/css">
+div#login {height:auto;width:100%;left:50%;top:50%;}
+</style>
+{% block content %}
+    <div id="login">
+    <table align = "center" style="border:skyblue 4 ridge;" rules="none" cellpadding="10">
+    <form align = "center" method="POST">
+    <tr>
+        <td width="20%" algin="left">用户名:</td>
+        <td><input type="text" name="Username" style="width:150px"/></td>
+    </tr>
+    <tr>
+        <td width="20%" algin="left">密 码:</td>
+        <td><input type="password" name="Password" style="width:150px"/></td>
+    </tr>
+    <tr>
+    <td></td>
+    <td><p align="right">
+        <input type="submit" style="width:80px;" value="登录"/>
+        <input type="hidden" name="next" value="{{ next|escape }}" />
+    </p></td>
+    </tr>
+    </form>
+    
+    <tr><td></td>
+    <td>
+    {% if error %}
+        {% for err in error%}
+            <p style="color:red;">*{{err}}*</p>
+        {% endfor %}
+    {% endif %}
+    </td>
+    </tr>
+    </table>
+    </div>
+{% endblock %}

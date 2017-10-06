@@ -1,0 +1,504 @@
+{% extends "TutorSystem_base.html" %}
+
+{% block title %}家教服务系统{% endblock %}
+
+{% block content %}
+        <br>
+        <br>
+        <br>
+        <table  border='0'>
+        <tr>
+            <td width="20%" align="left">
+            <h2>高中▪高考</h2>
+            </td>
+            <td width="80%" align="right">
+            </td>    
+        </tr>
+        </table>
+<STYLE type="text/css">
+BODY {FONT-SIZE: 15px;}
+
+SELECT {FONT-SIZE: 15px}
+INPUT {FONT-SIZE: 15px}
+a.pic:link,a.pic:visited {COLOR: #000000;text-decoration:none;text-align:center;width:120px;height:60px;}
+a.pic:hover,a.pic:active    {background-color:#cccccc;}
+a.one:link,a.one:visited{text-decoration:none;}
+BODY #search {
+CLEAR: both; WIDTH: 540px; HEIGHT: 50px
+}
+BODY #search #left {
+FLOAT: left
+}
+BODY #search #searchleft {
+PADDING-LEFT: 30px; FLOAT: left; PADDING-TOP: 12px; HEIGHT: 35px; TEXT-ALIGN: left
+}
+BODY #search #searchleft1 {
+PADDING-LEFT: 30px; PADDING-TOP: 15px; HEIGHT: 35px; TEXT-ALIGN: left
+}
+FORM {
+PADDING-RIGHT: 0px; DISPLAY: block; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-TOP: 0px
+}
+BODY #newsearch {
+WIDTH: 100%; HEIGHT: 100%
+}
+BODY #newsearchtop {
+WIDTH: 1000px; HEIGHT: 50px; TEXT-ALIGN: right
+}
+BODY #newsearchtop LI {
+FONT-SIZE: 18px; FLOAT: left
+}
+.newsearchinsidew {BORDER-TOP: #cccccc 2px solid; MARGIN-TOP: 2px; BORDER-RIGHT: #cccccc 1px solid;BORDER-LEFT: #ccc 2px solid; WIDTH: 80px; CURSOR: hand; LINE-HEIGHT: 30px; BORDER-BOTTOM: #cccccc 2px solid; HEIGHT: 30px; TEXT-ALIGN: center; TEXT-DECORATION: none}
+.newsearchinsider { BORDER-RIGHT: #cccccc 1px solid; BORDER-TOP: #cccccc 1px solid; FONT-WEIGHT: bold; BORDER-LEFT: #cccccc 1px solid; WIDTH: 80px; COLOR: #000000; PADDING-TOP: 5px; HEIGHT: 30px; BACKGROUND-COLOR: #cccccc; TEXT-ALIGN: center}
+.newsearchinsider a.pic:visited {
+COLOR: #000000; TEXT-DECORATION: none
+}
+
+.newsearchinsidew a.pic:hover {
+background-color:#FFFFFF;WIDTH: 69px; TEXT-ALIGN: center
+}
+BODY #newsearchbottom {BORDER-TOP：#cccccc 1px solid; POSITION: absolute; HEIGHT: 250px;}
+BODY #newsearchbottom #e1 { Z-INDEX: 0; LEFT: 0px; VISIBILITY: visible; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #e2 { Z-INDEX: 0; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #e3 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #e4 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #e5 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #e6 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+
+
+
+
+
+BODY #newsearchbottom #ec1 { Z-INDEX: 0; LEFT: 0px; VISIBILITY: visible; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #ec2 { Z-INDEX: 0; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #ec3 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #ec4 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #ec5 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+BODY #newsearchbottom #ec6 { Z-INDEX: 2; LEFT: 0px; VISIBILITY: hidden; WIDTH: 538px; POSITION: absolute; TOP: 0px; HEIGHT: 50px}
+
+
+UL {PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 0px;margin:0px; PADDING-TOP: 0px; LIST-STYLE-TYPE: none;}
+</STYLE>
+
+<SCRIPT>
+function doClick(o){
+o.className="newsearchinsider";
+var j;
+var id;
+var e;
+for(var i=1;i<=6;i++){
+id ="v"+i;
+j = document.getElementById(id);
+e = document.getElementById("e"+i);
+if(id != o.id){
+j.className="newsearchinsidew";
+e.style.visibility = "hidden";
+}else{
+e.style.visibility = "visible";
+}
+}
+var id = o.id+"";
+var dd=id.substring(1,2);
+var curForm = document.getElementById("FormSearch"+dd);
+var inputv ;
+for(var i=1;i<=6;i++){
+var otherForm = document.getElementById("FormSearch"+i);
+}
+}
+
+
+
+
+function doClick1(o){
+o.className="newsearchinsider";
+var j;
+var id;
+var e;
+for(var i=1;i<=6;i++){
+id ="vc"+i;
+j = document.getElementById(id);
+e = document.getElementById("ec"+i);
+if(id != o.id){
+j.className="newsearchinsidew";
+e.style.visibility = "hidden";
+}else{
+e.style.visibility = "visible";
+}
+
+
+}
+var id = o.id+"";
+var dd=id.substring(1,2);
+var curForm = document.getElementById("FormSearch"+dd);
+var inputv ;
+for(var i=1;i<=6;i++){
+var otherForm = document.getElementById("FormSearch"+i);
+}
+}
+function doOut(o){
+}
+</SCRIPT>
+</HEAD>
+<BODY>
+<DIV id=search align="center">
+<DIV id=newsearch>
+<DIV id=newsearchtop>
+<UL>
+<LI><DIV class=newsearchinsider id=v1 onClick="javascript:doClick(this)"><a class="pic" href="#">数学</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=v2 onClick="javascript:doClick(this)"><a class="pic" href="#">语文</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=v3 onClick="javascript:doClick(this)"><a class="pic" href="#">英语</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=v4 onClick="javascript:doClick(this)"><a class="pic" href="#">化学</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=v5 onClick="javascript:doClick(this)"><a class="pic" href="#">物理</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=v6 onClick="javascript:doClick(this)"><a class="pic" href="#">生物</a></DIV></LI>
+<a class="pic" href="http://victorydets.sinaapp.com/search" align="right">更多老师/其他科目</a>
+</UL>
+</DIV>
+<DIV id=newsearchbottom>
+<DIV id=e1><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in G_math %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in G_math %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                   {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=e2><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in G_chinese %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in G_chinese %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                    {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=e3><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in G_english %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in G_english %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                    {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=e4><DIV id=left><DIV id=searchleft1>
+<table  cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in G_chemistry %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in G_chemistry %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=e5><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in G_physics %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in G_physics %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=e6><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in G_biology %}
+                 <td align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in G_biology%}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>  
+<table width="100%" border='0'>
+<tr>
+    <td width="20%" align="left">
+    <h2>初中▪中考</h2>
+    </td>
+    <td width="80%" align="right">
+    </td>    
+</tr>
+</table>
+        
+<DIV id=search align="center">
+<DIV id=newsearch>
+<DIV id=newsearchtop>
+<UL>
+<LI><DIV class=newsearchinsider id=vc1 onClick="javascript:doClick1(this)">数学</DIV></LI>
+<LI><DIV class=newsearchinsidew id=vc2 onClick="javascript:doClick1(this)">语文</DIV></LI>
+<LI><DIV class=newsearchinsidew id=vc3 onClick="javascript:doClick1(this)">英语</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=vc4 onClick="javascript:doClick1(this)">化学</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=vc5 onClick="javascript:doClick1(this)">物理</a></DIV></LI>
+<LI><DIV class=newsearchinsidew id=vc6 onClick="javascript:doClick1(this)">生物</a></DIV></LI>
+<a class="pic" href="http://victorydets.sinaapp.com/search" align="right">更多老师/其他科目</a>
+</UL>
+</DIV>
+<DIV id=newsearchbottom>
+<DIV id=ec1><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in C_math %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in C_math %}
+                <td align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=ec2><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in C_chinese %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in C_chinese %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=ec3><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in C_english %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in C_english %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=ec4><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in C_chemistry %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in C_chemistry %}
+                <td  align="center">
+                   <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=ec5><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in C_physics %}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in C_physics %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时    
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+<DIV id=ec6><DIV id=left><DIV id=searchleft1>
+<table cellspacing="30" border='0'>
+        <br/>
+        <tr>
+           {% for tut in C_biology%}
+                 <td  align="center">
+                    {% if tut.TeacherID.Sex %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_boy.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% else %}
+                        <a class="one" href="/tutpage/{{tut.TeacherID}}/"><img src="picture/Tutor_picture_girl.png" width="100" height="100" alt="Tutor_picture"/></a>
+                    {% endif %}
+                </td>
+           {% endfor %}
+            
+        </tr>
+        <tr>
+            {% for tut in C_biology %}
+                <td  align="center">
+                    <h4>{{tut.TeacherID.Username.username}}</h4>
+                        {{tut.Price}}元/小时    
+                 </td>
+            {% endfor %}
+        </tr>
+</table>
+</DIV></DIV></DIV>
+</BODY></HTML>
+
+      
+
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends "TutorSystem_base.html" %}
+
+{% block title %}资料设置{% endblock %}
+
+{% block content %}
+<style type="text/css">
+div#menu {background-color:#f0f0f0;height:140px;width:11%;float:left;}
+div#content0 {height:auto;width:89%;float:left;}
+</style>
+<div id="menu">
+
+    
+<ul class="inf_set">
+<li class="inf_set"><a class="menu" href="/person_center/tutor/per_inf">个人情况</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/tutor/rel_tutor_inf">授课信息</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/tutor/myprecontract">学生预约</a></li>
+<li class="inf_set"><a class="menu" href="/person_center/tutor/cha_passwd">账号及密码</a></li>
+</ul>
+</div>
+<div id="content0">
+    <h2 align = "center">欢迎您，教师用户--->{{Username}}</h2>
+    {% if inf_flag %}
+    	{% if newpre_flag %}
+    		<h3 align = "center" style="color:green;">您有{{newpre_number}}条新的预约，请及时查看！</h3>
+    	{% endif %}
+    {% else %}
+		<h3 align = "center">请完善您的授课信息！以便于您可以被查找到！</h3>
+    {%  endif %}
+</div>
+
+{% endblock %}
